@@ -9,6 +9,57 @@
       Title="PageAddProduce">
 
     <Grid>
-        
+        <Button Name="btnBack" Content="Назад" Click="btnBack_Click"
+                Style="{StaticResource btnTrans}"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Название продукта:" Width="150"/>
+                <TextBox Text="{Binding Name}" Name="txbName">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Калории:" Width="150"/>
+                <TextBox Text="{Binding Calories}" Name="txbCalories">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Вес:" Width="150"/>
+                <TextBox Text="{Binding Weight}" Name="txbWeight">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Цена:" Width="150"/>
+                <TextBox Text="{Binding Price}" Name="txbPrice">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </StackPanel>
+            <Button Name="btnAdd" Content="Добавить" Click="btnAdd_Click"
+                    Style="{StaticResource btnSubmit}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

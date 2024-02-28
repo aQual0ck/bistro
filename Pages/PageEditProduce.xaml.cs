@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bistro.important;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
 
 namespace bistro.Pages
 {
@@ -20,9 +22,27 @@ namespace bistro.Pages
     /// </summary>
     public partial class PageEditProduce : Page
     {
-        public PageEditProduce()
+        private Product p;
+        public PageEditProduce(object item)
         {
             InitializeComponent();
+            DataContext = item;
+            var id = TypeDescriptor.GetProperties(DataContext)["Id"].GetValue(DataContext);
+            p = DBHelper.entObj.Product.FirstOrDefault(x => x.Id == (int)id);
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            important.FrameApp.frmObj.Navigate(new PageProduce());
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            p.Name = txbName.Text;
+            p.Calories = Convert.ToDecimal(txbCalories.Text);
+            p.Weight = Convert.ToInt16(txbWeight.Text);
+            p.Price = Convert.ToInt32(txbPrice.Text);
+            DBHelper.entObj.SaveChanges();
         }
     }
 }

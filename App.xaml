@@ -10,5 +10,30 @@
         <Style TargetType="TextBox">
             <Setter Property="Width" Value="150"/>
         </Style>
+        <Style TargetType="Button" x:Key="btnTrans">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Button" x:Key="btnSubmit">
+            <Setter Property="Background" Value="LightSkyBlue"/>
+            <Setter Property="BorderBrush" Value="Aquamarine"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Button" x:Key="btnSwitch">
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Background" Value="#eb967a"/>
+            <Setter Property="BorderBrush" Value="#FFB65839"/>
+        </Style>
     </Application.Resources>
 </Application>

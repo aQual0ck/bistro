@@ -10,14 +10,31 @@
       Title="PageLogin">
 
     <Grid>
-        <Button Name="btnBack" HorizontalAlignment="Right" VerticalAlignment="Top" 
-                Content="Назад" Width="50" Height="50" Background="Transparent"
-                BorderBrush="Transparent" Click="btnBack_Click"/>
+        <Button Name="btnBack" Content="Назад" Click="btnBack_Click" 
+                Style="{StaticResource btnTrans}"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox Name="txbLogin" TextChanged="txbLogin_TextChanged" />
-            <TextBox Name="psbPassword" TextChanged="psbPassword_TextChanged" Margin="5"/>
-            <Button Name="btnLogin" Width="100" Content="Войти" Margin="5" 
-                    Click="btnLogin_Click"/>
+            <TextBox Name="txbLogin" TextChanged="txbLogin_TextChanged">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox Name="psbPassword" TextChanged="psbPassword_TextChanged" Margin="5">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button Name="btnLogin" Content="Войти" Click="btnLogin_Click"
+                    Style="{StaticResource btnSubmit}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
             <TextBlock Name="tbWarning" Text="Попробуйте еще раз" Visibility="Hidden"/>
         </StackPanel>
     </Grid>

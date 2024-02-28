@@ -24,5 +24,41 @@ namespace bistro.Pages
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            important.FrameApp.frmObj.Navigate(new PageProduce());
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                important.Product productObj = new important.Product()
+                {
+                    Name = txbName.Text,
+                    Calories = Convert.ToDecimal(txbCalories.Text),
+                    Weight = Convert.ToInt16(txbWeight.Text),
+                    Price = Convert.ToInt32(txbPrice.Text)
+                };
+                important.DBHelper.entObj.Product.Add(productObj);
+                important.DBHelper.entObj.SaveChanges();
+                MessageBox.Show(
+                    "Продукт " + productObj.Name + " добавлено",
+                    "Уведомление",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning
+                    );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Критическая ошибка" + ex.Message.ToString(),
+                    "Уведомление",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning
+                    );
+            }
+        }
     }
 }

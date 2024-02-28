@@ -33,7 +33,7 @@ namespace bistro.Pages
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            important.FrameApp.frmObj.GoBack();
+            important.FrameApp.frmObj.Navigate(new PageAdmin());
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)

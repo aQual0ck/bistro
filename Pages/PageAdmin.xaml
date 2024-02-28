@@ -14,13 +14,25 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <Button Name="btnProduct" Width="120" Height="20" Content="Меню продуктов" Margin="5"
-                    Click="btnProduct_Click"/>
-            <Button Width="150" Height="20" Content="Добавить новое блюдо" Name="btnAddDish"
-                    Click="btnAddDish_Click"/>
+            <Button Name="btnProduct" Content="Меню продуктов" Click="btnProduct_Click"
+                    Style="{StaticResource btnSwitch}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Добавить новое блюдо" Name="btnAddDish" Click="btnAddDish_Click"
+                    Style="{StaticResource btnSwitch}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
-        <Button Width="50" Height="50" HorizontalAlignment="Right" Content="Выход" Name="btnLogout"
-                Click="btnLogout_Click" Background="Transparent" BorderBrush="Transparent"/>
+        <Button Content="Выход" Name="btnLogout" Click="btnLogout_Click"
+                Style="{StaticResource btnTrans}"/>
         <ComboBox Name="cmbType" SelectionChanged="cmbType_SelectionChanged" 
                   VerticalAlignment="Center"/>
             <DataGrid Name="dgrDishes" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True"
@@ -42,7 +54,8 @@
                             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <Button Name="btnEdit" Content="Редактировать" 
                                         Click="btnEdit_Click"/>
-                                <Button Name="btnDelete" Content="Удалить"/>
+                                <Button Name="btnDelete" Content="Удалить"
+                                        Click="btnDelete_Click"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

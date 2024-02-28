@@ -27,12 +27,38 @@ namespace bistro.Pages
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                important.Dish dishObj = new important.Dish()
+                {
+                    Name = txbName.Text,
+                    Type = txbType.Text,
+                    Output = Convert.ToInt32(txbOutput.Text),
+                    ImageSource = txbImage.Text
+                };
+                important.DBHelper.entObj.Dish.Add(dishObj);
+                important.DBHelper.entObj.SaveChanges();
+                MessageBox.Show(
+                    "Блюдо " + dishObj.Name + " добавлено",
+                    "Уведомление",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning
+                    );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Критическая ошибка" + ex.Message.ToString(),
+                    "Уведомление",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning
+                    );
+            }
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            important.FrameApp.frmObj.GoBack();
+            important.FrameApp.frmObj.Navigate(new PageAdmin());
         }
     }
 }

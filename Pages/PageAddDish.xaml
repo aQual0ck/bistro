@@ -9,28 +9,57 @@
       Title="PageAddDish">
 
     <Grid>
-        <Button Name="btnBack" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Content="Назад" Width="50" Height="50" Background="Transparent"
-                BorderBrush="Transparent" Click="btnBack_Click"/>
+        <Button Name="btnBack" Content="Назад" Click="btnBack_Click"
+                Style="{StaticResource btnTrans}"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Название блюда:" Width="150"/>
-                <TextBox Name="txbName"/>
+                <TextBox Name="txbName">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Вид:" Width="150"/>
-                <TextBox Name="txbType"/>
+                <TextBox Name="txbType">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Выход" Width="150"/>
-                <TextBox Name="txbOutput"/>
+                <TextBox Name="txbOutput">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Путь к изображению" Width="150"/>
-                <TextBox Name="txbImage"/>
+                <TextBox Name="txbImage">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
             </StackPanel>
-            <Button Name="btnAdd" Width="100" Height="30" Content="Добавить"
-                    Click="btnAdd_Click"/>
+            <Button Name="btnAdd" Content="Добавить" Click="btnAdd_Click"
+                    Style="{StaticResource btnSubmit}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

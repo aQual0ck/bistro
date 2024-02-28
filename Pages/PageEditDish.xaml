@@ -9,28 +9,57 @@
       Title="PageEditDish">
 
     <Grid>
-        <Button Name="btnBack" HorizontalAlignment="Right" VerticalAlignment="Top"
-                Content="Назад" Width="50" Height="50" Background="Transparent"
-                BorderBrush="Transparent" Click="btnBack_Click"/>
+        <Button Name="btnBack" Content="Назад" Click="btnBack_Click" 
+                Style="{StaticResource btnTrans}"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Название блюда:" Width="150"/>
-                <TextBox Text="{Binding Name}" Name="txbName"/>
+                <TextBox Text="{Binding Name}" Name="txbName">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Вид:" Width="150"/>
-                <TextBox Text="{Binding Type}" Name="txbType"/>
+                <TextBox Text="{Binding Type}" Name="txbType">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Выход" Width="150"/>
-                <TextBox Text="{Binding Output}" Name="txbOutput"/>
+                <TextBox Text="{Binding Output}" Name="txbOutput">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Путь к изображению" Width="150"/>
-                <TextBox Text="{Binding ImageSource}" Name="txbImage"/>
+                <TextBox Text="{Binding ImageSource}" Name="txbImage">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
             </StackPanel>
-            <Button Name="btnSave" Width="100" Height="30" Content="Сохранить"
-                    Click="btnSave_Click"/>
+            <Button Name="btnSave" Content="Сохранить" Click="btnSave_Click"
+                    Style="{StaticResource btnSubmit}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>
