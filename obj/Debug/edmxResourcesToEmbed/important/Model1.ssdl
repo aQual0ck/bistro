@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище bistroappModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cooking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Dish" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
+  <EntityType Name="Dish">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Type" Type="nvarchar" MaxLength="250" />
+    <Property Name="Output" Type="int" />
+    <Property Name="ImageSource" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "bistroapp.dbo.DishProduct" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="DishProduct">
+    <Key>
+      <PropertyRef Name="Id_Dish" />
+      <PropertyRef Name="Id_Product" />
+    </Key>
+    <Property Name="Id_Dish" Type="int" Nullable="false" />
+    <Property Name="Id_Product" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Calories" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="Weight" Type="smallint" />
+    <Property Name="Price" Type="int" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Dish" Type="int" />
+    <Property Name="Time" Type="int" />
+    <Property Name="Tech" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="25" />
+    <Property Name="Password" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <Association Name="FK__Cooking__Id_Dish__412EB0B6">
+    <End Role="Dish" Type="Self.Dish" Multiplicity="0..1" />
+    <End Role="Cooking" Type="Self.Cooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dish">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cooking">
+        <PropertyRef Name="Id_Dish" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DishProdu__Id_Di__3A81B327">
+    <End Role="Dish" Type="Self.Dish" Multiplicity="1" />
+    <End Role="DishProduct" Type="Self.DishProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dish">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DishProduct">
+        <PropertyRef Name="Id_Dish" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DishProdu__Id_Pr__3B75D760">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="DishProduct" Type="Self.DishProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DishProduct">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Recipe__Id_Dish__3E52440B">
+    <End Role="Dish" Type="Self.Dish" Multiplicity="0..1" />
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dish">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Recipe">
+        <PropertyRef Name="Id_Dish" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище bistroappModelContainer">
+    <EntitySet Name="Cooking" EntityType="Self.Cooking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dish" EntityType="Self.Dish" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DishProduct" EntityType="Self.DishProduct" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DishProduct].[Id_Dish] AS [Id_Dish], 
+    [DishProduct].[Id_Product] AS [Id_Product]
+    FROM [dbo].[DishProduct] AS [DishProduct]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Cooking__Id_Dish__412EB0B6" Association="Self.FK__Cooking__Id_Dish__412EB0B6">
+      <End Role="Dish" EntitySet="Dish" />
+      <End Role="Cooking" EntitySet="Cooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DishProdu__Id_Di__3A81B327" Association="Self.FK__DishProdu__Id_Di__3A81B327">
+      <End Role="Dish" EntitySet="Dish" />
+      <End Role="DishProduct" EntitySet="DishProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DishProdu__Id_Pr__3B75D760" Association="Self.FK__DishProdu__Id_Pr__3B75D760">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="DishProduct" EntitySet="DishProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Recipe__Id_Dish__3E52440B" Association="Self.FK__Recipe__Id_Dish__3E52440B">
+      <End Role="Dish" EntitySet="Dish" />
+      <End Role="Recipe" EntitySet="Recipe" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

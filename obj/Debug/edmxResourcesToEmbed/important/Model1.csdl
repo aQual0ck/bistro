@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bistroappModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="bistroappEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cooking" EntityType="bistroappModel.Cooking" />
+    <EntitySet Name="Dish" EntityType="bistroappModel.Dish" />
+    <EntitySet Name="Product" EntityType="bistroappModel.Product" />
+    <EntitySet Name="Recipe" EntityType="bistroappModel.Recipe" />
+    <EntitySet Name="sysdiagrams" EntityType="bistroappModel.sysdiagrams" />
+    <AssociationSet Name="FK__Cooking__Id_Dish__412EB0B6" Association="bistroappModel.FK__Cooking__Id_Dish__412EB0B6">
+      <End Role="Dish" EntitySet="Dish" />
+      <End Role="Cooking" EntitySet="Cooking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Recipe__Id_Dish__3E52440B" Association="bistroappModel.FK__Recipe__Id_Dish__3E52440B">
+      <End Role="Dish" EntitySet="Dish" />
+      <End Role="Recipe" EntitySet="Recipe" />
+    </AssociationSet>
+    <AssociationSet Name="DishProduct" Association="bistroappModel.DishProduct">
+      <End Role="Dish" EntitySet="Dish" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <EntitySet Name="Users" EntityType="bistroappModel.Users" />
+  </EntityContainer>
+  <EntityType Name="Cooking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Dish" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Dish" Relationship="bistroappModel.FK__Cooking__Id_Dish__412EB0B6" FromRole="Cooking" ToRole="Dish" />
+  </EntityType>
+  <EntityType Name="Dish">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Output" Type="Int32" />
+    <Property Name="ImageSource" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cooking" Relationship="bistroappModel.FK__Cooking__Id_Dish__412EB0B6" FromRole="Dish" ToRole="Cooking" />
+    <NavigationProperty Name="Recipe" Relationship="bistroappModel.FK__Recipe__Id_Dish__3E52440B" FromRole="Dish" ToRole="Recipe" />
+    <NavigationProperty Name="Product" Relationship="bistroappModel.DishProduct" FromRole="Dish" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Calories" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Weight" Type="Int16" />
+    <Property Name="Price" Type="Int32" />
+    <NavigationProperty Name="Dish" Relationship="bistroappModel.DishProduct" FromRole="Product" ToRole="Dish" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Dish" Type="Int32" />
+    <Property Name="Time" Type="Int32" />
+    <Property Name="Tech" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Dish" Relationship="bistroappModel.FK__Recipe__Id_Dish__3E52440B" FromRole="Recipe" ToRole="Dish" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Cooking__Id_Dish__412EB0B6">
+    <End Type="bistroappModel.Dish" Role="Dish" Multiplicity="0..1" />
+    <End Type="bistroappModel.Cooking" Role="Cooking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dish">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cooking">
+        <PropertyRef Name="Id_Dish" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Recipe__Id_Dish__3E52440B">
+    <End Type="bistroappModel.Dish" Role="Dish" Multiplicity="0..1" />
+    <End Type="bistroappModel.Recipe" Role="Recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dish">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Recipe">
+        <PropertyRef Name="Id_Dish" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DishProduct">
+    <End Type="bistroappModel.Dish" Role="Dish" Multiplicity="*" />
+    <End Type="bistroappModel.Product" Role="Product" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
