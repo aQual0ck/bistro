@@ -21,7 +21,7 @@ namespace bistro.important
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string ProductName { get; set; }
         public Nullable<decimal> Calories { get; set; }
         public Nullable<short> Weight { get; set; }
         public Nullable<int> Price { get; set; }

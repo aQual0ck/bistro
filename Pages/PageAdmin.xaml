@@ -53,9 +53,11 @@
                         <DataTemplate>
                             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <Button Name="btnEdit" Content="Редактировать" 
-                                        Click="btnEdit_Click"/>
-                                <Button Name="btnDelete" Content="Удалить"
-                                        Click="btnDelete_Click"/>
+                                        Click="btnEdit_Click"
+                                        Style="{StaticResource btnOptionsEdit}"/>
+                                <Button Name="btnDelete" Content="Удалить" 
+                                        Click="btnDelete_Click"
+                                        Style="{StaticResource btnOptionsDelete}"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

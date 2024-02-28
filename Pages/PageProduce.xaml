@@ -14,18 +14,21 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <Button Name="btnDish" Width="120" Height="20" Content="Меню блюд" Margin="5"
-                    Click="btnDish_Click"/>
-            <Button Width="150" Height="20" Content="Добавить новый продукт" Name="btnAddProduce"
-                    Click="btnAddProduce_Click"/>
+            <Button Name="btnDish" Content="Меню блюд" Click="btnDish_Click"
+                    Style="{StaticResource btnSwitch}"/>
+            <Button Content="Добавить новый продукт" Name="btnAddProduce"
+                    Click="btnAddProduce_Click"
+                    Style="{StaticResource btnSwitch}"/>
         </StackPanel>
         <Button Content="Выход" Name="btnLogout" Click="btnLogout_Click"
                 Style="{StaticResource btnTrans}"/>
         <DataGrid Name="dgrProduce" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование продукта" Binding="{Binding Name}"
+                <DataGridTextColumn Header="Наименование продукта" 
+                                    Binding="{Binding ProductName}"
                                     Width="*"/>
-                <DataGridTextColumn Header="Калорийность" Binding="{Binding Calories}" Width="*"/>
+                <DataGridTextColumn Header="Калорийность" Binding="{Binding Calories}" 
+                                    Width="*"/>
                 <DataGridTextColumn Header="Вес" Binding="{Binding Weight}" Width="*"/>
                 <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="*"/>
                 <DataGridTemplateColumn Header="Опции" Width="*">
@@ -33,9 +36,11 @@
                         <DataTemplate>
                             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <Button Name="btnEdit" Content="Редактировать" 
-                                        Click="btnEdit_Click"/>
+                                        Click="btnEdit_Click"
+                                        Style="{StaticResource btnOptionsEdit}"/>
                                 <Button Name="btnDelete" Content="Удалить"
-                                        Click="btnDelete_Click"/>
+                                        Click="btnDelete_Click"
+                                        Style="{StaticResource btnOptionsDelete}"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

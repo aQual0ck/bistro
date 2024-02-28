@@ -38,7 +38,7 @@ namespace bistro.Pages
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            p.Name = txbName.Text;
+            p.ProductName = txbName.Text;
             p.Calories = Convert.ToDecimal(txbCalories.Text);
             p.Weight = Convert.ToInt16(txbWeight.Text);
             p.Price = Convert.ToInt32(txbPrice.Text);

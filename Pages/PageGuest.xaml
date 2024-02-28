@@ -13,12 +13,13 @@
             <RowDefinition Height="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Width="50" Height="50" HorizontalAlignment="Right" Content="Вход" Name="btnLogin"
-                Click="btnLogin_Click" Background="Transparent" BorderBrush="Transparent"/>
+        <Button Content="Вход" Name="btnLogin" Click="btnLogin_Click"
+                Style="{StaticResource btnTrans}" Opacity="0"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <ComboBox Name="cmbType" SelectionChanged="cmbType_SelectionChanged"/>
         </StackPanel>
-        <DataGrid Name="dgrDishes" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid Name="dgrDishes" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True"
+                  MouseDoubleClick="dgrDishes_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование блюда" Binding="{Binding Name}"
                                     Width="*"/>

@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="53d548fe409b430c92290c874eef4439" Name="Diagram1">
-        <EntityTypeShape EntityType="bistroappModel.Cooking" Width="1.5" PointX="3" PointY="3.875" />
+      <Diagram DiagramId="53d548fe409b430c92290c874eef4439" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="bistroappModel.Cooking" Width="1.5" PointX="3" PointY="6.875" />
         <EntityTypeShape EntityType="bistroappModel.Dish" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="bistroappModel.Product" Width="1.5" PointX="3" PointY="6.625" />
+        <EntityTypeShape EntityType="bistroappModel.Product" Width="1.5" PointX="3" PointY="3.875" />
         <EntityTypeShape EntityType="bistroappModel.Recipe" Width="1.5" PointX="3" PointY="1.25" />
         <EntityTypeShape EntityType="bistroappModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bistroappModel.Users" Width="1.5" PointX="5.75" PointY="3.75" />
         <AssociationConnector Association="bistroappModel.FK__Cooking__Id_Dish__412EB0B6" />
         <AssociationConnector Association="bistroappModel.FK__Recipe__Id_Dish__3E52440B" />
         <AssociationConnector Association="bistroappModel.DishProduct" />
-        <EntityTypeShape EntityType="bistroappModel.Users" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

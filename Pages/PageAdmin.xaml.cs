@@ -30,7 +30,7 @@ namespace bistro.Pages
 
             cmbType.SelectedValuePath = "Type";
             cmbType.DisplayMemberPath = "Type";
-            cmbType.ItemsSource = important.DBHelper.entObj.Dish.ToList();
+            cmbType.ItemsSource = DBHelper.entObj.Dish.GroupBy(x => x.Type).ToList();
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)

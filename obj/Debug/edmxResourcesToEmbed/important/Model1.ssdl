@@ -34,7 +34,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="250" />
     <Property Name="Calories" Type="numeric" Precision="5" Scale="2" />
     <Property Name="Weight" Type="smallint" />
     <Property Name="Price" Type="int" />

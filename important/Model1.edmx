@@ -39,7 +39,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="250" />
           <Property Name="Calories" Type="numeric" Precision="5" Scale="2" />
           <Property Name="Weight" Type="smallint" />
           <Property Name="Price" Type="int" />
@@ -159,6 +159,7 @@
           <EntitySet Name="Product" EntityType="bistroappModel.Product" />
           <EntitySet Name="Recipe" EntityType="bistroappModel.Recipe" />
           <EntitySet Name="sysdiagrams" EntityType="bistroappModel.sysdiagrams" />
+          <EntitySet Name="Users" EntityType="bistroappModel.Users" />
           <AssociationSet Name="FK__Cooking__Id_Dish__412EB0B6" Association="bistroappModel.FK__Cooking__Id_Dish__412EB0B6">
             <End Role="Dish" EntitySet="Dish" />
             <End Role="Cooking" EntitySet="Cooking" />
@@ -171,7 +172,6 @@
             <End Role="Dish" EntitySet="Dish" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <EntitySet Name="Users" EntityType="bistroappModel.Users" />
         </EntityContainer>
         <EntityType Name="Cooking">
           <Key>
@@ -201,7 +201,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ProductName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Calories" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="Weight" Type="Int16" />
           <Property Name="Price" Type="Int32" />
@@ -226,6 +226,14 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__Cooking__Id_Dish__412EB0B6">
           <End Type="bistroappModel.Dish" Role="Dish" Multiplicity="0..1" />
@@ -255,15 +263,7 @@
           <End Type="bistroappModel.Dish" Role="Dish" Multiplicity="*" />
           <End Type="bistroappModel.Product" Role="Product" Multiplicity="*" />
         </Association>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-        </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -296,7 +296,7 @@
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Weight" ColumnName="Weight" />
                 <ScalarProperty Name="Calories" ColumnName="Calories" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -322,14 +322,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="DishProduct" TypeName="bistroappModel.DishProduct" StoreEntitySet="DishProduct">
-            <EndProperty Name="Product">
-              <ScalarProperty Name="Id" ColumnName="Id_Product" />
-            </EndProperty>
-            <EndProperty Name="Dish">
-              <ScalarProperty Name="Id" ColumnName="Id_Dish" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="bistroappModel.Users">
               <MappingFragment StoreEntitySet="Users">
@@ -339,6 +331,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="DishProduct" TypeName="bistroappModel.DishProduct" StoreEntitySet="DishProduct">
+            <EndProperty Name="Product">
+              <ScalarProperty Name="Id" ColumnName="Id_Product" />
+            </EndProperty>
+            <EndProperty Name="Dish">
+              <ScalarProperty Name="Id" ColumnName="Id_Dish" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

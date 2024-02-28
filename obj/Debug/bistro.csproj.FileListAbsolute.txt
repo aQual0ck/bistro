@@ -37,3 +37,5 @@ D:\projects\csharp\bistro\obj\Debug\Pages\PageEditDish.baml
 D:\projects\csharp\bistro\obj\Debug\Pages\PageEditProduce.baml
 D:\projects\csharp\bistro\obj\Debug\Pages\PageProduce.baml
 D:\projects\csharp\bistro\obj\Debug\bistro.csproj.AssemblyReference.cache
+D:\projects\csharp\bistro\obj\Debug\Pages\PageDescription.g.cs
+D:\projects\csharp\bistro\obj\Debug\Pages\PageDescription.baml

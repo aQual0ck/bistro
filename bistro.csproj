@@ -124,6 +124,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageDescription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageEditDish.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,6 +158,9 @@
     </Compile>
     <Compile Include="Pages\PageAdmin.xaml.cs">
       <DependentUpon>PageAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageDescription.xaml.cs">
+      <DependentUpon>PageDescription.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageEditDish.xaml.cs">
       <DependentUpon>PageEditDish.xaml</DependentUpon>

@@ -36,7 +36,7 @@ namespace bistro.Pages
             {
                 important.Product productObj = new important.Product()
                 {
-                    Name = txbName.Text,
+                    ProductName = txbName.Text,
                     Calories = Convert.ToDecimal(txbCalories.Text),
                     Weight = Convert.ToInt16(txbWeight.Text),
                     Price = Convert.ToInt32(txbPrice.Text)
@@ -44,7 +44,7 @@ namespace bistro.Pages
                 important.DBHelper.entObj.Product.Add(productObj);
                 important.DBHelper.entObj.SaveChanges();
                 MessageBox.Show(
-                    "Продукт " + productObj.Name + " добавлено",
+                    "Продукт " + productObj.ProductName + " добавлено",
                     "Уведомление",
                     MessageBoxButton.OK,
                     MessageBoxImage.Warning

@@ -28,7 +28,7 @@ namespace bistro.Pages
 
             cmbType.SelectedValuePath = "Type";
             cmbType.DisplayMemberPath = "Type";
-            cmbType.ItemsSource = important.DBHelper.entObj.Dish.ToList();
+            cmbType.ItemsSource = important.DBHelper.entObj.Dish.GroupBy(x => x.Type).ToList();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -41,6 +41,18 @@ namespace bistro.Pages
             string SelectedGroup = Convert.ToString(cmbType.SelectedValue);
 
             dgrDishes.ItemsSource = important.DBHelper.entObj.Dish.Where(x => x.Type == SelectedGroup).ToList();
+        }
+
+        private void dgrDishes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var item = dgrDishes.SelectedItem;
+            var id = dgrDishes.Items.IndexOf(item);
+            {
+                if (item != null)
+                {
+                    important.FrameApp.frmObj.Navigate(new PageDescription(item));
+                }
+            }
         }
     }
 }

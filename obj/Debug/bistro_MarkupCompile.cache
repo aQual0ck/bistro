@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\projects\csharp\bistro\App.xaml
-9-248516321
+10-2035024481
 22006091940
-24-313521674
+25-247221643
 19-1160403061
-MainWindow.xaml;Pages\PageAddDish.xaml;Pages\PageAddProduce.xaml;Pages\PageAdmin.xaml;Pages\PageEditDish.xaml;Pages\PageEditProduce.xaml;Pages\PageGuest.xaml;Pages\PageLogin.xaml;Pages\PageProduce.xaml;
+MainWindow.xaml;Pages\PageAddDish.xaml;Pages\PageAddProduce.xaml;Pages\PageAdmin.xaml;Pages\PageDescription.xaml;Pages\PageEditDish.xaml;Pages\PageEditProduce.xaml;Pages\PageGuest.xaml;Pages\PageLogin.xaml;Pages\PageProduce.xaml;
 
 False
 

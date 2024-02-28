@@ -14,7 +14,7 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Название продукта:" Width="150"/>
-                <TextBox Text="{Binding Name}" Name="txbName">
+                <TextBox Text="{Binding ProductName}" Name="txbName">
                     <TextBox.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="7"/>
