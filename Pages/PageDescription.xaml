@@ -7,7 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageDescription">
-
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top">
@@ -19,17 +18,25 @@
                 </TextBlock.Text>
             </TextBlock>
             <TextBlock Text="Состав:"/>
-            <TextBlock Name="txbProduce" DataContext="{Binding Path=Product}">
+            <ItemsControl ItemsSource="{Binding Product}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Name="txbProduce">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0} {1} г">
+                                    <Binding Path="ProductName"/>
+                                    <Binding Path="Weight"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <TextBlock Text="Технология приготовления:"/>
+            <TextBlock Name="txbTech" DataContext="{Binding Path=Recipe}"
+                       HorizontalAlignment="Center" TextWrapping="Wrap">
                 <TextBlock.Text>
-                    <MultiBinding StringFormat="{}{0} {1} г,">
-                        <Binding Path="ProductName"/>
-                        <Binding Path="Weight"/>
-                    </MultiBinding>
-                </TextBlock.Text>
-            </TextBlock>
-            <TextBlock Name="txbTech">
-                <TextBlock.Text>
-                    <MultiBinding StringFormat="{}Технология приготовления: {}">
+                    <MultiBinding StringFormat="{}{0}">
                         <Binding Path="Tech"/>
                     </MultiBinding>
                 </TextBlock.Text>
@@ -41,13 +48,21 @@
                     </MultiBinding>
                 </TextBlock.Text>
             </TextBlock>
-            <TextBlock>
-                <TextBlock.Text>
-                    <MultiBinding StringFormat="{}Калорий - {0}">
-                        <Binding Path="Calories"/>
-                    </MultiBinding>
-                </TextBlock.Text>
-            </TextBlock>
+            <TextBlock Text="Калорий - "/>
+            <ItemsControl ItemsSource="{Binding Product}" Name="itemCtrl">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Name="txbCalories">
+                            <TextBlock.Text>
+                                <MultiBinding StringFormat="{}{0}">
+                                    <Binding Path="Calories"/>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <Image Source="{Binding ImageSource}" Width="150" Height="80"/>
         </StackPanel>
     </Grid>
 </Page>
