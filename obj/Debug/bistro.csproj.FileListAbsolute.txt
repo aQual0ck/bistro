@@ -38,3 +38,4 @@ D:\projects\csharp\bistro\obj\Debug\bistro.Properties.Resources.resources
 D:\projects\csharp\bistro\obj\Debug\bistro.csproj.GenerateResource.cache
 D:\projects\csharp\bistro\obj\Debug\bistro.csproj.CoreCompileInputs.cache
 D:\projects\csharp\bistro\obj\Debug\bistro.csproj.CopyComplete
+D:\projects\csharp\bistro\obj\Debug\bistro.csproj.AssemblyReference.cache

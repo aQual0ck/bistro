@@ -15,10 +15,22 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
             <Button Name="btnDish" Content="Меню блюд" Click="btnDish_Click"
-                    Style="{StaticResource btnSwitch}"/>
+                    Style="{StaticResource btnSwitch}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
             <Button Content="Добавить новый продукт" Name="btnAddProduce"
                     Click="btnAddProduce_Click"
-                    Style="{StaticResource btnSwitch}"/>
+                    Style="{StaticResource btnSwitch}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
         <Button Content="Выход" Name="btnLogout" Click="btnLogout_Click"
                 Style="{StaticResource btnTrans}"/>

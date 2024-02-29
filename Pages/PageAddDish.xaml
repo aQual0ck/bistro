@@ -51,6 +51,8 @@
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
+                <Button Margin="-15, 0, 0, 0" Content="..." Width="15" Name="btnFolder"
+                        Click="btnFolder_Click"/>
             </StackPanel>
             <Button Name="btnAdd" Content="Добавить" Click="btnAdd_Click"
                     Style="{StaticResource btnSubmit}">

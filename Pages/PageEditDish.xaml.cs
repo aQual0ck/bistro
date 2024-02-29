@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using Microsoft.Win32;
 
 namespace bistro.Pages
 {
@@ -43,6 +44,19 @@ namespace bistro.Pages
             d.Output = Convert.ToInt32(txbOutput.Text);
             d.ImageSource = txbImage.Text;
             DBHelper.entObj.SaveChanges();
+        }
+
+        private void btnFolder_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.DefaultExt = ".jpg";
+            ofd.Filter = "Файлы рисунков | *.jpg";
+            ofd.InitialDirectory = @"D:\projects\csharp\bistro\images";
+            Nullable<bool> result = ofd.ShowDialog();
+            if(result == true)
+            {
+                txbImage.Text = ofd.FileName;
+            }
         }
     }
 }

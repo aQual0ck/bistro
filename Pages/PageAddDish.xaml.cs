@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace bistro.Pages
 {
@@ -59,6 +60,19 @@ namespace bistro.Pages
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             important.FrameApp.frmObj.Navigate(new PageAdmin());
+        }
+
+        private void btnFolder_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.DefaultExt = ".jpg";
+            ofd.Filter = "Файлы рисунков | *.jpg";
+            ofd.InitialDirectory = @"D:\projects\csharp\bistro\images";
+            Nullable<bool> result = ofd.ShowDialog();
+            if (result == true)
+            {
+                txbImage.Text = ofd.FileName;
+            }
         }
     }
 }
