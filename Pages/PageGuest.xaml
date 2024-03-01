@@ -17,7 +17,8 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <ComboBox Name="cmbType" SelectionChanged="cmbType_SelectionChanged"/>
         </StackPanel>
-        <DataGrid Name="dgrDishes" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True"
+        <DataGrid Name="dgrDishes" Grid.Row="1" AutoGenerateColumns="False" 
+                  IsReadOnly="True"
                   MouseDoubleClick="dgrDishes_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование блюда" Binding="{Binding Name}"

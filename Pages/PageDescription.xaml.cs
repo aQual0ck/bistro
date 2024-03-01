@@ -26,5 +26,10 @@ namespace bistro.Pages
             InitializeComponent();
             DataContext = item;
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            important.FrameApp.frmObj.GoBack();
+        }
     }
 }
